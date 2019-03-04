@@ -105,6 +105,7 @@ DATABASES = {
     "solr"         : "com.yahoo.ycsb.db.solr.SolrClient",
     "solr6"        : "com.yahoo.ycsb.db.solr6.SolrClient",
     "tarantool"    : "com.yahoo.ycsb.db.TarantoolClient",
+    "hstore"    : "com.yahoo.ycsb.db.HstoreClient",
 }
 
 OPTIONS = {
@@ -214,7 +215,8 @@ def get_classpath_from_maven(module):
         debug("Running 'mvn -pl com.yahoo.ycsb:" + module + " -am package -DskipTests "
               "dependency:build-classpath -DincludeScope=compile -Dmdep.outputFilterFile=true'")
         mvn_output = check_output(["mvn", "-pl", "com.yahoo.ycsb:" + module,
-                                   "-am", "package", "-DskipTests",
+                                   "-am", "package", "-DskipTests", 
+                                   "-Dcheckstyle.skip",
                                    "dependency:build-classpath",
                                    "-DincludeScope=compile",
                                    "-Dmdep.outputFilterFile=true"])

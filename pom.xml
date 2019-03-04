@@ -162,6 +162,7 @@ LICENSE file.
     <module>solr</module>
     <module>solr6</module>
     <module>tarantool</module>
+    <module>hstore</module>
     <!--<module>voldemort</module>-->
   </modules>
 
